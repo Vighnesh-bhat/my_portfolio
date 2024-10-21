@@ -27087,7 +27087,7 @@ var _stylesCss = require("./styles.css");
  *
  * If you don't have one of the social sites listed, leave it as an empty string.
  */ const siteProps = {
-    name: "Vighnesh",
+    name: "Vighnesh-bhat",
     title: "Code Crafter & Tech Explorer",
     email: "vighneshbhat13@gmail.com",
     gitHub: "Vighnesh-bhat",
@@ -28660,7 +28660,8 @@ const Home = ({ name , title  })=>{
                     left: "50%",
                     transform: "translate(-50%, -50%)",
                     textAlign: "center",
-                    width: "45rem"
+                    width: "45rem",
+                    animation: "fadeSlideIn 2s ease-in-out"
                 },
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
@@ -28670,7 +28671,7 @@ const Home = ({ name , title  })=>{
                         children: name
                     }, void 0, false, {
                         fileName: "src/Components/Home.jsx",
-                        lineNumber: 26,
+                        lineNumber: 28,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -28680,7 +28681,7 @@ const Home = ({ name , title  })=>{
                         children: title
                     }, void 0, false, {
                         fileName: "src/Components/Home.jsx",
-                        lineNumber: 27,
+                        lineNumber: 29,
                         columnNumber: 9
                     }, undefined)
                 ]
@@ -28706,12 +28707,12 @@ const Home = ({ name , title  })=>{
                     alt: "Scroll down"
                 }, void 0, false, {
                     fileName: "src/Components/Home.jsx",
-                    lineNumber: 30,
+                    lineNumber: 32,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/Home.jsx",
-                lineNumber: 29,
+                lineNumber: 31,
                 columnNumber: 7
             }, undefined)
         ]
