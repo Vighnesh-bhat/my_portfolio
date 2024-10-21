@@ -28626,12 +28626,7 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-/**
- * Home component
- *
- * The section at the top of the page to display image of your
- * choice, name and title that describes your career focus.
- */ var _react = require("react");
+var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _downArrowSvg = require("../images/down-arrow.svg");
 var _downArrowSvgDefault = parcelHelpers.interopDefault(_downArrowSvg);
@@ -28640,13 +28635,7 @@ var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 /**
  * Home background image
  *
- * Below is a sample image. Upload the image of your choice into the "images"
- * directory and import here for use. Then, set imageAltText to string that 
- * represents what you see in that image.
- *
- *
- * Need an image? Check out https://unsplash.com to download a photo you
- * freely use on your site.
+ * Replace with your desired image and alt text.
  */ var _computer87790361280CopyJpg = require("../images/computer-8779036_1280 copy.jpg");
 var _computer87790361280CopyJpgDefault = parcelHelpers.interopDefault(_computer87790361280CopyJpg);
 const imageAltText = "Random coding environment";
@@ -28658,10 +28647,10 @@ const Home = ({ name , title  })=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                 className: "background",
                 src: (0, _computer87790361280CopyJpgDefault.default),
-                alt: ""
+                alt: imageAltText
             }, void 0, false, {
                 fileName: "src/Components/Home.jsx",
-                lineNumber: 30,
+                lineNumber: 17,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28679,7 +28668,7 @@ const Home = ({ name , title  })=>{
                         children: name
                     }, void 0, false, {
                         fileName: "src/Components/Home.jsx",
-                        lineNumber: 32,
+                        lineNumber: 19,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -28689,42 +28678,44 @@ const Home = ({ name , title  })=>{
                         children: title
                     }, void 0, false, {
                         fileName: "src/Components/Home.jsx",
-                        lineNumber: 33,
+                        lineNumber: 20,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/Home.jsx",
-                lineNumber: 31,
+                lineNumber: 18,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 style: {
                     position: "absolute",
                     bottom: "3rem",
-                    left: "50%"
+                    left: "50%",
+                    transform: "translateX(-50%)"
                 },
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                     src: (0, _downArrowSvgDefault.default),
+                    className: "bounce-arrow",
                     style: {
                         height: "3rem",
                         width: "3rem"
                     },
-                    alt: imageAltText
+                    alt: "Scroll down"
                 }, void 0, false, {
                     fileName: "src/Components/Home.jsx",
-                    lineNumber: 36,
+                    lineNumber: 23,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/Home.jsx",
-                lineNumber: 35,
+                lineNumber: 22,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/Home.jsx",
-        lineNumber: 29,
+        lineNumber: 16,
         columnNumber: 5
     }, undefined);
 };
@@ -28772,16 +28763,16 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
  * as you continue to learn and create.
  */ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-/**
- * Desk image
- *
- * Below is a sample desk image. Feel free to update this to an image of your choice,
- * updating below imageAltText to string that represents what you see in that image.
- *
- * Need an image? Check out https://unsplash.com to download a photo you
- * freely use on your site.
- */ var _designDeskJpeg = require("../images/design-desk.jpeg");
+//  * Desk image
+//  *
+//  * Below is a sample desk image. Feel free to update this to an image of your choice,
+//  * updating below imageAltText to string that represents what you see in that image.
+//  *
+//  * Need an image? Check out https://unsplash.com to download a photo you
+//  * freely use on your site.
+var _designDeskJpeg = require("../images/design-desk.jpeg");
 var _designDeskJpegDefault = parcelHelpers.interopDefault(_designDeskJpeg);
+var _s = $RefreshSig$();
 const imageAltText = "desktop with books and laptop";
 /**
  * Project list
@@ -28811,6 +28802,24 @@ const imageAltText = "desktop with books and laptop";
     }, 
 ];
 const Portfolio = ()=>{
+    _s();
+    const [isVisible, setIsVisible] = (0, _react.useState)(false);
+    const portfolioRef = (0, _react.useRef)(null);
+    (0, _react.useEffect)(()=>{
+        const observer = new IntersectionObserver(([entry])=>{
+            if (entry.isIntersecting) {
+                setIsVisible(true);
+                observer.disconnect(); // Stop observing once visible
+            }
+        }, {
+            threshold: 0.1
+        } // Adjust threshold as needed
+        );
+        if (portfolioRef.current) observer.observe(portfolioRef.current);
+        return ()=>{
+            if (portfolioRef.current) observer.unobserve(portfolioRef.current);
+        };
+    }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
         className: "padding",
         id: "portfolio",
@@ -28822,7 +28831,7 @@ const Portfolio = ()=>{
                 children: "Portfolio"
             }, void 0, false, {
                 fileName: "src/Components/Portfolio.jsx",
-                lineNumber: 62,
+                lineNumber: 89,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28839,6 +28848,7 @@ const Portfolio = ()=>{
                         },
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                             src: (0, _designDeskJpegDefault.default),
+                            className: isVisible ? "slideInLeft" : "",
                             style: {
                                 height: "90%",
                                 width: "100%",
@@ -28848,12 +28858,12 @@ const Portfolio = ()=>{
                             alt: imageAltText
                         }, void 0, false, {
                             fileName: "src/Components/Portfolio.jsx",
-                            lineNumber: 65,
+                            lineNumber: 92,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/Components/Portfolio.jsx",
-                        lineNumber: 64,
+                        lineNumber: 91,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28872,12 +28882,12 @@ const Portfolio = ()=>{
                                             children: project.title
                                         }, void 0, false, {
                                             fileName: "src/Components/Portfolio.jsx",
-                                            lineNumber: 80,
+                                            lineNumber: 108,
                                             columnNumber: 17
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/Components/Portfolio.jsx",
-                                        lineNumber: 79,
+                                        lineNumber: 107,
                                         columnNumber: 15
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -28885,33 +28895,34 @@ const Portfolio = ()=>{
                                         children: project.description
                                     }, void 0, false, {
                                         fileName: "src/Components/Portfolio.jsx",
-                                        lineNumber: 82,
+                                        lineNumber: 110,
                                         columnNumber: 15
                                     }, undefined)
                                 ]
                             }, project.title, true, {
                                 fileName: "src/Components/Portfolio.jsx",
-                                lineNumber: 78,
+                                lineNumber: 106,
                                 columnNumber: 13
                             }, undefined))
                     }, void 0, false, {
                         fileName: "src/Components/Portfolio.jsx",
-                        lineNumber: 76,
+                        lineNumber: 104,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/Portfolio.jsx",
-                lineNumber: 63,
+                lineNumber: 90,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/Portfolio.jsx",
-        lineNumber: 61,
+        lineNumber: 88,
         columnNumber: 5
     }, undefined);
 };
+_s(Portfolio, "XO6I84DPvdQPaMOaAn3IBG7Ha8E=");
 _c = Portfolio;
 exports.default = Portfolio;
 var _c;
