@@ -4,6 +4,19 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Montserrat:wght@200;400;600;800&display=swap");
 
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 50%); /* Start from below and fade in */
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%); /* End at the centered position */
+  }
+}
+
+
 .bounce-arrow {
   animation: bounce 2s infinite;
 }

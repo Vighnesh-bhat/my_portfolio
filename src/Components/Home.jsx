@@ -20,9 +20,11 @@ const Home = ({ name, title }) => {
     top: "50%", 
     left: "50%", 
     transform: "translate(-50%, -50%)", // Centers the div both horizontally and vertically
-    textAlign: "center",                // Centers the text content within the div
-    width: "45rem" 
-  }}>
+          textAlign: "center", // Centers the text content within the div
+    width: "45rem" ,
+    animation: "fadeSlideIn 2s ease-in-out",
+        }}
+      >
         <h1 style={{ color: "white" }}>{name}</h1>
         <h2 style={{ color: "white" }}>{title}</h2>
       </div>
