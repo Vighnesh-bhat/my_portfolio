@@ -15,7 +15,14 @@ const Home = ({ name, title }) => {
   return (
     <section id="home" className="min-height">
       <img className="background" src={image} alt={imageAltText} />
-      <div style={{ position: "absolute", top: "5rem", left: "2rem", width: "17rem" }}>
+      <div   style={{ 
+    position: "absolute", 
+    top: "50%", 
+    left: "50%", 
+    transform: "translate(-50%, -50%)", // Centers the div both horizontally and vertically
+    textAlign: "center",                // Centers the text content within the div
+    width: "45rem" 
+  }}>
         <h1 style={{ color: "white" }}>{name}</h1>
         <h2 style={{ color: "white" }}>{title}</h2>
       </div>
