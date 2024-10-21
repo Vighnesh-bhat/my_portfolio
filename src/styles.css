@@ -4,6 +4,22 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Montserrat:wght@200;400;600;800&display=swap");
 
+.bounce-arrow {
+  animation: bounce 2s infinite;
+}
+
+/* Keyframes for bouncing effect */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
 
 
 html,
@@ -130,12 +146,14 @@ img.socialIcon {
 @keyframes slideInLeft {
   0% {
     transform: translateX(-100%);
+    opacity: 0;
   }
   100% {
     transform: translateX(0);
+    opacity: 1;
   }
 }
 
 .slideInLeft {
-  animation: slideInLeft 1s ease-out;
+  animation: slideInLeft 0.5s ease-out forwards;
 }

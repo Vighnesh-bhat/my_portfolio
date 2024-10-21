@@ -9,16 +9,17 @@
  */
 
 import React from "react";
+import { useEffect, useRef, useState } from "react";
 
-/**
- * Desk image
- *
- * Below is a sample desk image. Feel free to update this to an image of your choice,
- * updating below imageAltText to string that represents what you see in that image.
- *
- * Need an image? Check out https://unsplash.com to download a photo you
- * freely use on your site.
- */
+
+//  * Desk image
+//  *
+//  * Below is a sample desk image. Feel free to update this to an image of your choice,
+//  * updating below imageAltText to string that represents what you see in that image.
+//  *
+//  * Need an image? Check out https://unsplash.com to download a photo you
+//  * freely use on your site.
+ 
 import image from "../images/design-desk.jpeg";
 
 const imageAltText = "desktop with books and laptop";
@@ -57,6 +58,32 @@ const projectList = [
 ];
 
 const Portfolio = () => {
+
+  const [isVisible, setIsVisible] = useState(false);
+  const portfolioRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Stop observing once visible
+        }
+      },
+      { threshold: 0.1 } // Adjust threshold as needed
+    );
+
+    if (portfolioRef.current) {
+      observer.observe(portfolioRef.current);
+    }
+
+    return () => {
+      if (portfolioRef.current) {
+        observer.unobserve(portfolioRef.current);
+      }
+    };
+  }, []);
+
   return (
     <section className="padding" id="portfolio">
       <h2 style={{ textAlign: "center" }}>Portfolio</h2>
@@ -64,6 +91,7 @@ const Portfolio = () => {
         <div style={{ maxWidth: "40%", alignSelf: "center" }}>
           <img
             src={image}
+            className={isVisible ? "slideInLeft" : ""}
             style={{
               height: "90%",
               width: "100%",
